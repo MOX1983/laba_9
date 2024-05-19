@@ -1,25 +1,3 @@
-#include <iostream>
-
-using namespace std;
-
-#include "book_subscription.h"
-#include "file_reader.h"
-#include "constants.h"
-
-int main()
-{
-    setlocale(LC_ALL, "Russian");
-    cout << "Лабораторная работа №8. GIT\n";
-    cout << "Вариант №0. Библиотечный абонемент\n";
-    cout << "Автор: Сергей Ермоченко\n\n";
-    book_subscription* subscriptions[MAX_FILE_ROWS_COUNT];
-    int size;
-    try
-    {
-        read("data.txt", subscriptions, size);
-        for (int i = 0; i < size; i++)
-        {
-            cout << subscriptions[i]->reader.last_name << '\n';
             cout << subscriptions[i]->reader.first_name << '\n';
             cout << subscriptions[i]->reader.middle_name << '\n';
             cout << subscriptions[i]->finish.day << ' ';
@@ -45,3 +23,4 @@ int main()
     }
     return 0;
 }
+
