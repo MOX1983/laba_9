@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{1cca0111-486e-45ac-ab7f-f782f57e31a6}</ProjectGuid>
-    <RootNamespace>process</RootNamespace>
+    <ProjectGuid>{d345073a-0f43-4c6e-b1d7-c0f6d90b4ef6}</ProjectGuid>
+    <RootNamespace>My9software</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -127,10 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="process.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="processing.h" />
+    <ClCompile Include="9 software.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
