@@ -121,9 +121,7 @@ void merge_sort_duration(vector<Talk>& talks) {
     merge_sort_duration(left);
     merge_sort_duration(right);
     merge(left.begin(), left.end(), right.begin(), right.end(), talks.begin(), [](const Talk& a, const Talk& b) {
-        if (a.duration() != b.duration()) {
-            return a.duration() > b.duration(); // сортировка по убыванию длительности
-        }
+        return a.duration() > b.duration();
         });
 }
 void merge_sort_last_name(vector<Talk>& talks) {
@@ -224,7 +222,7 @@ int main() {
     }
     else
     {
-        cout << "таго нет :(" << endl;
+        cout << "тагого нет :(" << endl;
     }
 
     return 0;
