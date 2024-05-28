@@ -36,6 +36,7 @@ ostream& operator<<(ostream& os, const Talk& talk) {
     os << talk.start << ' ' << talk.end << ' ' << talk.last_name << ' ' << talk.first_name << ' ' << talk.middle_name << ' ' << talk.theme << '\n';
     return os;
 }
+
 void heapify_duration(vector<Talk>& talks, int n, int i) {
     int largest = i;
     int left = 2 * i + 1;
@@ -73,15 +74,17 @@ void heapify_last_name(vector<Talk>& talks, int n, int i) {
     int left = 2 * i + 1;
     int right = 2 * i + 2;
 
-    if (left < n && (talks[left].last_name < talks[i].last_name ||
+    if (left < n && (talks[left].last_name > talks[i].last_name ||
         (talks[left].last_name == talks[i].last_name &&
-            talks[left].theme < talks[i].theme))) {
+            talks[left].theme > talks[i].theme)))
+    {
         largest = left;
     }
 
-    if (right < n && (talks[right].last_name < talks[largest].last_name ||
+    if (right < n && (talks[right].last_name > talks[largest].last_name ||
         (talks[right].last_name == talks[largest].last_name &&
-            talks[right].theme < talks[largest].theme))) {
+            talks[right].theme > talks[largest].theme)))
+    {
         largest = right;
     }
 
@@ -103,6 +106,7 @@ void heap_sort_last_name(vector<Talk>& talks) {
         heapify_last_name(talks, i, 0);
     }
 }
+
 vector<Talk> search_numbers_by_time(const vector<Talk>& talks, const string& last_name, const string& first_name, const string& middle_name) {
     vector<Talk> numbers_by_time;
     for (const auto& t : talks) {
@@ -112,6 +116,7 @@ vector<Talk> search_numbers_by_time(const vector<Talk>& talks, const string& las
     }
     return numbers_by_time;
 }
+
 void merge_sort_duration(vector<Talk>& talks) {
     if (talks.size() <= 1) {
         return;
@@ -124,6 +129,7 @@ void merge_sort_duration(vector<Talk>& talks) {
         return a.duration() > b.duration();
         });
 }
+
 void merge_sort_last_name(vector<Talk>& talks) {
     if (talks.size() <= 1) {
         return;
@@ -139,6 +145,7 @@ void merge_sort_last_name(vector<Talk>& talks) {
         return a.theme < b.theme; // сортировка по возрастанию темы в рамках одного автора
         });
 }
+
 void vibor(vector<Talk>& talks) {
     int choice, choice2;
     cout << "каким методом сортировать:\n";
@@ -206,6 +213,7 @@ int main() {
         cerr << "Не удалось открыть файл для записи " << endl;
         return 1;
     }
+
     string last_name;
     string first_name;
     string middle_name;
@@ -215,14 +223,14 @@ int main() {
     vector<Talk> numbers = search_numbers_by_time(talks, last_name, first_name, middle_name);
 
     if (numbers.size() != 0) {
-        cout << "ФИО " << last_name <<" " << first_name << " " << middle_name <<  endl;
+        cout << "ФИО " << last_name << " " << first_name << " " << middle_name << endl;
         for (const auto& t : numbers) {
             cout << t;
         }
     }
     else
     {
-        cout << "тагого нет :(" << endl;
+        cout << "такого нет :(" << endl;
     }
 
     return 0;
